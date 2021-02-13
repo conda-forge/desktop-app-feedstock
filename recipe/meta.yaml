@@ -10,7 +10,7 @@ source:
   sha256: 4ff60a41d44bc852072d8fe6417f74e42d434eb4bfb80072e2d35a342128f7ce
 
 build:
-  number: 0
+  number: 1
   skip: true  # [osx]
   script:
     - rm pyproject.toml
