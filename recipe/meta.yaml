@@ -25,10 +25,10 @@ requirements:
   host:
     - python
     - pip
-    - setuptools_scm
+    - setuptools-scm
   run:
     - python
-    - setuptools_scm
+    - setuptools-scm
     - importlib_metadata
     - pywin32  # [win]
     - distlib
