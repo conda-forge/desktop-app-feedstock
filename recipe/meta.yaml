@@ -10,13 +10,13 @@ source:
   sha256: 4ff60a41d44bc852072d8fe6417f74e42d434eb4bfb80072e2d35a342128f7ce
 
 build:
-  number: 2
+  number: 3
   skip: true  # [osx]
   script:
     - rm pyproject.toml
     - {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - desktop_app = desktop_app.__main__:main
+    - desktop-app = desktop_app.__main__:main
 
 requirements:
   build:
@@ -36,6 +36,8 @@ requirements:
 test:
   imports:
     - desktop_app
+  commands:
+    - desktop-app --help
 
 about:
   home: https://pypi.org/project/desktop-app/
