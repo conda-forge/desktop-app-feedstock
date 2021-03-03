@@ -10,7 +10,7 @@ source:
   sha256: 9e4de0ccf6c490f8a3958366d763565d3a05b89083c776284ac9916d7edc7be5
 
 build:
-  number: 0
+  number: 1
   skip: true  # [osx]
   script:
     - rm pyproject.toml
@@ -29,7 +29,7 @@ requirements:
   run:
     - python
     - setuptools-scm
-    - importlib_metadata
+    - importlib-metadata
     - pywin32  # [win]
     - distlib
 
