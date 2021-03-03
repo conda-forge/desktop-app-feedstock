@@ -1,0 +1,41 @@
+From c9e452807d397183b6d31049061e0da9e7b6a717 Mon Sep 17 00:00:00 2001
+From: chrisjbillington <chrisjbillington@gmail.com>
+Date: Wed, 3 Mar 2021 12:07:35 +1100
+Subject: [PATCH] Fix #13 by appending `.exe` to launcher script path
+
+It seems that shortcuts must include `.exe` in their `TargetPath`, but
+that Windows often appends this extension automatically. However, when
+the `TargetPath` already contains a `.`, then Windows does not
+automatically append `.exe` (presumably thinking the target already has
+an extension). However in our case the dot may be from a dotted
+submodule name, so we still need `.exe` to be appended.
+---
+ desktop_app/shell.py | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/desktop_app/shell.py b/desktop_app/shell.py
+index 9590812..f53e1a8 100644
+--- a/desktop_app/shell.py
++++ b/desktop_app/shell.py
+@@ -86,16 +86,17 @@ def _load_config(self):
+ 
+     def _get_launcher_script_path(self):
+         """Get the path to the script for launching the app without a console. It is
+-        assumed to be called <module_name>-gui and be in the bin or Scripts directory
+-        corresponding to the installation location of the module. If the module is not
+-        installed, returns None."""
++        assumed to be called <module_name>-gui.exe on Windows and <module-name>
++        otherwise, and to be in the bin or Scripts directory corresponding to the
++        installation location of the module. If the module is not installed, returns
++        None."""
+         # Look up the path to the launcher:
+         scripts_dir = get_scripts_dir(self.module_name)
+         if scripts_dir is None:
+             return None
+         script_path = scripts_dir / self.module_name
+         if WINDOWS:
+-            return Path(script_path.parent, script_path.name + '-gui')
++            return Path(script_path.parent, script_path.name + '-gui.exe')
+         return script_path
+ 
+     def _get_appid(self):
