@@ -8,9 +8,11 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 9e4de0ccf6c490f8a3958366d763565d3a05b89083c776284ac9916d7edc7be5
+  patches:
+    - fix_py_scripts.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [osx]
   script:
     - rm pyproject.toml
