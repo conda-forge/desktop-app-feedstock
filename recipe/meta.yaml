@@ -1,5 +1,5 @@
 {% set name = "desktop-app" %}
-{% set version = "0.2.7" %}
+{% set version = "0.2.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9e4de0ccf6c490f8a3958366d763565d3a05b89083c776284ac9916d7edc7be5
+  sha256: ac921cbf18b9dccefe8c88e9cb95a0ea6d039705167a460e5a6004a9ea7150dd
   patches:
     - fix_py_scripts.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [osx]
   script:
     - rm pyproject.toml
