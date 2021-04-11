@@ -8,9 +8,12 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: ac921cbf18b9dccefe8c88e9cb95a0ea6d039705167a460e5a6004a9ea7150dd
+  patches:
+    # Remove when 0.2.9 is released
+    - 16.patch
 
 build:
-  number: 1
+  number: 2
   script:
     - rm pyproject.toml
     - {{ PYTHON }} -m pip install . -vv
