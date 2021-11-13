@@ -13,7 +13,7 @@ source:
     - 16.diff
 
 build:
-  number: 2
+  number: 3
   script:
     - rm pyproject.toml
     - {{ PYTHON }} -m pip install . -vv
