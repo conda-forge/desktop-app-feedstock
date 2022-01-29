@@ -1,5 +1,5 @@
 {% set name = "desktop-app" %}
-{% set version = "0.2.8" %}
+{% set version = "0.2.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ac921cbf18b9dccefe8c88e9cb95a0ea6d039705167a460e5a6004a9ea7150dd
-  patches:
-    # Remove when 0.2.9 is released
-    - 16.diff
+  sha256: a74a44ce13ae05f8c4c7e079735bb01a9d5a8e3da32259fe114a6f0d1761b19f
 
 build:
-  number: 3
+  number: 0
   script:
-    - rm pyproject.toml
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . -vv --no-build-isolation
   entry_points:
     - desktop-app = desktop_app.__main__:main
 
