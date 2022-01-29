@@ -12,8 +12,7 @@ source:
 build:
   number: 0
   script:
-    - rm pyproject.toml
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . -vv --no-build-isolation
   entry_points:
     - desktop-app = desktop_app.__main__:main
 
