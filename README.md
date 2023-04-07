@@ -1,11 +1,11 @@
-About desktop-app
-=================
+About desktop-app-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/desktop-app-feedstock/blob/main/LICENSE.txt)
 
 Home: https://pypi.org/project/desktop-app/
 
 Package license: BSD-2-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/desktop-app-feedstock/blob/main/LICENSE.txt)
 
 Summary: Simplify making a Python GUI application.
 
