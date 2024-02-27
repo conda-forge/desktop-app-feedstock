@@ -1,5 +1,5 @@
 {% set name = "desktop-app" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 099dfee7e3fabecf0dc35870245796b58313a171b8706a9e061ae0a96bfdab9f
+  sha256: 7793e41b2764840d8f55444b320d721d203c0d156305ec36789eb0cc61c9ef20
 
 build:
   number: 0
