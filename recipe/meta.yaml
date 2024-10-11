@@ -10,7 +10,7 @@ source:
   sha256: 7793e41b2764840d8f55444b320d721d203c0d156305ec36789eb0cc61c9ef20
 
 build:
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} -m pip install . -vv --no-build-isolation
   entry_points:
@@ -19,18 +19,20 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - python
     - pip
+    - setuptools
     - setuptools-scm
   run:
     - python
     - setuptools-scm
     - importlib-metadata
-    - pywin32  # [win]
+    - pywin32                                # [win]
     - distlib
 
 test:
