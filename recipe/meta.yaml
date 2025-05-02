@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 7793e41b2764840d8f55444b320d721d203c0d156305ec36789eb0cc61c9ef20
+  patches:
+    - no_require_setuptools_scm_at_runtime.patch
 
 build:
   number: 1
@@ -36,10 +38,13 @@ requirements:
     - distlib
 
 test:
+  requires:
+    - pip
   imports:
     - desktop_app
   commands:
     - desktop-app --help
+    - pip check
 
 about:
   home: https://pypi.org/project/desktop-app/
