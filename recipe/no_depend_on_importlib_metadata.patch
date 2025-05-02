@@ -1,0 +1,12 @@
+diff --git a/setup.cfg b/setup.cfg
+index 762bc1f..414c89a 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -22,7 +22,6 @@ include_package_data = True
+ packages = find:
+ python_requires = >=3.6
+ install_requires = 
+-	importlib_metadata
+ 	distlib
+ 	pywin32; sys_platform == 'win32'
+ 

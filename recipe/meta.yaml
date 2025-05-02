@@ -1,13 +1,15 @@
-{% set name = "desktop-app" %}
 {% set version = "0.4.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: desktop-app
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/d/desktop-app/desktop-app-{{ version }}.tar.gz
   sha256: 7793e41b2764840d8f55444b320d721d203c0d156305ec36789eb0cc61c9ef20
+  patches:
+    - no_require_setuptools_scm_at_runtime.patch
+    - no_depend_on_importlib_metadata.patch   # [py>=310]
 
 build:
   number: 1
@@ -18,8 +20,8 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - {{ stdlib('c') }}
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
@@ -30,16 +32,18 @@ requirements:
     - setuptools-scm
   run:
     - python
-    - setuptools-scm
-    - importlib-metadata
-    - pywin32                                # [win]
+    - importlib-metadata   # [py<310]
+    - pywin32              # [win]
     - distlib
 
 test:
+  requires:
+    - pip
   imports:
     - desktop_app
   commands:
     - desktop-app --help
+    - pip check
 
 about:
   home: https://pypi.org/project/desktop-app/
