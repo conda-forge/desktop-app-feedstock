@@ -9,6 +9,7 @@ source:
   sha256: 7793e41b2764840d8f55444b320d721d203c0d156305ec36789eb0cc61c9ef20
   patches:
     - no_require_setuptools_scm_at_runtime.patch
+    - no_depend_on_importlib_metadata.patch   # [py>=310]
 
 build:
   number: 1
