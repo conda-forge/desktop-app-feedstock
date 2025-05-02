@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/d/desktop-app/desktop-app-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/d/desktop-app/desktop-app-{{ version }}.tar.gz
   sha256: 7793e41b2764840d8f55444b320d721d203c0d156305ec36789eb0cc61c9ef20
   patches:
     - no_require_setuptools_scm_at_runtime.patch
