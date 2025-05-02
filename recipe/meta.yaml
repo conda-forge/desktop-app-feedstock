@@ -31,8 +31,8 @@ requirements:
     - setuptools-scm
   run:
     - python
-    - importlib-metadata
-    - pywin32                                # [win]
+    - importlib-metadata   # [py<310]
+    - pywin32              # [win]
     - distlib
 
 test:
