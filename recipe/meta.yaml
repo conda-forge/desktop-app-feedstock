@@ -7,8 +7,6 @@ package:
 source:
   url: https://pypi.org/packages/source/d/desktop-app/desktop_app-{{ version }}.tar.gz
   sha256: 3ac12b698f88e06532ad56542651fc2b5592d0aeac5f7a295754ecbc9a30f6c2
-  patches:
-    - no_depend_on_importlib_metadata.patch   # [py>=310]
 
 build:
   number: 0
@@ -31,7 +29,6 @@ requirements:
     - setuptools-scm
   run:
     - python
-    - importlib-metadata   # [py<310]
     - pywin32              # [win]
     - distlib
 
