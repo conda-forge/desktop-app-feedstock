@@ -1,4 +1,4 @@
-{% set version = "0.4.2" %}
+{% set version = "0.5.0" %}
 
 package:
   name: desktop-app
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/d/desktop-app/desktop_app-{{ version }}.tar.gz
-  sha256: 3ac12b698f88e06532ad56542651fc2b5592d0aeac5f7a295754ecbc9a30f6c2
+  sha256: b26f5bf5c45ed9e903a8ee8b6c5afff5a91afd328fe8255db7de85812f79ae65
 
 build:
   number: 0
