@@ -5,11 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/d/desktop-app/desktop_app-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/d/desktop-app/desktop_app-{{ version }}.tar.gz
   sha256: b26f5bf5c45ed9e903a8ee8b6c5afff5a91afd328fe8255db7de85812f79ae65
 
 build:
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} -m pip install . -vv --no-build-isolation
   entry_points:
